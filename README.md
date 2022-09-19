@@ -1,8 +1,7 @@
-# kaardiklikk
+# Kaardiklikk
 Näpuharjutus kaardipildi näitamise ja peitmise teemal
 
 Tehtud Angularis. npm install ja siis ng serve
-# Katseklikk
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
