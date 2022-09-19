@@ -1,0 +1,16 @@
+<p>kaart {{currentMap.title}} works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-9"><a (click)="setSidebar(true)"><img (load)="setSidebar(sidebar)"
+          src="/assets/img/map/{{currentMap.path}}.png"></a></div>
+    <div *ngIf="sidebar === true" class="col-3" style="background: white">
+      <button id="x" (click)="setSidebar(false)">X</button>
+      <ul>
+        <li *ngFor="let item of getMapList()">
+          <h3><a (click)="setSidebar(true)" href="{{item.path}}">{{item.title}}</a>
+          </h3>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
