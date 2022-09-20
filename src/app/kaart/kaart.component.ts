@@ -19,7 +19,7 @@ export class KaartComponent implements OnInit {
   getRouteParams(): void {
     const kaart = this.activatedRoute.snapshot.paramMap.get('kaart');
 
-    if (kaart) {
+    if (kaart && this.mapListContainsPath(kaart)) {
       this.currentMap.title = kaart.toUpperCase();
       this.currentMap.path = kaart;
       this.setSidebar(true);
@@ -28,6 +28,16 @@ export class KaartComponent implements OnInit {
       this.currentMap.path = 'hybriid';
     }
   }
+  mapListContainsPath(path: string): boolean {
+    let containsPath = false;
+    this.getMapList().forEach((map) => {
+      if (map.path === path) {
+        containsPath = true;
+      }
+    });
+    return containsPath;
+  }
+
   getMapList(): any[] {
     return [
       { title: 'Hübriid', path: 'hybriid' },
