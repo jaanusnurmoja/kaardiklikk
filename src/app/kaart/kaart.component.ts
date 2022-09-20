@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class KaartComponent implements OnInit {
   currentMap: any = { title: 'string', path: 'string' };
   sidebar: boolean = false;
+  nomap: any;
   //clickArea: any;
   constructor(private activatedRoute: ActivatedRoute) {}
 
@@ -24,6 +25,12 @@ export class KaartComponent implements OnInit {
       this.currentMap.path = kaart;
       this.setSidebar(true);
     } else {
+      if (kaart) {
+        this.nomap =
+          'Paistab, et soovisite laadida kaarti ' +
+          kaart +
+          ', mida meie süsteemis (veel/enam) pole.';
+      }
       this.currentMap.title = 'Hübriid';
       this.currentMap.path = 'hybriid';
     }
@@ -44,6 +51,7 @@ export class KaartComponent implements OnInit {
       { title: 'Ortofoto', path: 'ortofoto' },
       { title: 'Reljeef', path: 'reljeef' },
       { title: 'Põhikaart', path: 'pohikaart' },
+      //{ title: 'Olematu', path: 'olematu' },
     ];
   }
   setSidebar(show: boolean): void {
