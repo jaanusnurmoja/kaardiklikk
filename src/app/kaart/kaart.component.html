@@ -1,5 +1,8 @@
 <h1>{{currentMap.title}}</h1>
-<p style="color:red" id="nomap">{{nomap}}</p>
+<h3 style="color:red" *ngIf="nomap">{{nomap}}</h3>
+<h3 style="color:red" *ngIf="noimg">
+  {{noimg}}
+</h3>
 <div class="container">
   <div class="row">
     <div class="col-9"><a (click)="setSidebar(true)"><img (load)="setSidebar(sidebar)"
